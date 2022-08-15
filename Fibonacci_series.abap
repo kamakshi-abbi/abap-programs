@@ -1,0 +1,27 @@
+"The code prints fibonacci series uptil a given position.
+"0 , 1, 1, 2, 3, 5, 8, 13, 21...
+"input 0  => 0 ,input 1 = 1 ,input 2 = 1
+
+DATA:  FS_RESULT type i,
+       numb1 type i value 0,
+       NUMB2 TYPE I value 1.
+PARAMETERS: NUMBER TYPE I.
+
+IF NUMBER = 0.
+FS_RESULT = 0.
+ELSEIF NUMBER = 1.
+FS_RESULT = 1.
+ELSE.
+DO NUMBER - 1 TIMES.
+PERFORM FSERIES USING NUMB1  NUMB2
+CHANGING FS_RESULT.
+WRITE: 'Output',FS_RESULT .
+ENDDO.
+ENDIF.
+
+FORM FSERIES USING FNUMB1 FNUMB2
+CHANGING FRESULT.
+FRESULT = FNUMB1 + FNUMB2.
+FNUMB1 = FNUMB2.
+FNUMB2 = FRESULT.
+ENDFORM.
